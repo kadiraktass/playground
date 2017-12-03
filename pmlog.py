@@ -19,7 +19,7 @@ log = logging.getLogger()
 
 parser = argparse.ArgumentParser(description='PMS5003 data logger')
 parser.add_argument(
-        "-p", "--port", type=str, default="/dev/ttyS1",
+        "-p", "--port", type=str, default="/dev/ttyS0",
         help="Serial port connected to the PMS5003 sensor")
 parser.add_argument(
         "--reset-pin", type=int, default=None,
