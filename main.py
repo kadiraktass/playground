@@ -50,7 +50,7 @@ def my_read_handler():
        }
     pm10 = res.get('apm10')
     print(type(pm10))
-    print "Value : %s" %  res.get('apm10')
+    print "Value : %d" %  res.get('apm10')
     blynk.virtual_write(7, 2) 
     
 def read_pm_line(_port):
