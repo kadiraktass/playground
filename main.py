@@ -49,10 +49,6 @@ def my_read_handler():
        'gt100um': rcv[26] * 256 + rcv[27]
        }
     pm10 = res['apm10']
-    pm101=pm10.decode("utf-8")
-    print(pm101)
-    pm102= bytes.fromhex(pm10)
-    print(pm102)
     #pm10 = res['apm10']
     #print(res)
     #print(pm10)
