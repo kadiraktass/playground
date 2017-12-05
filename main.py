@@ -3,8 +3,7 @@ import datetime
 import time
 from sense_hat import SenseHat
 import BlynkLib
-import platform
-print(platform.python_version())
+
 BLYNK_AUTH = 'd0cbc51243284f1e8b1cdca4ba4f4c5f' 
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
@@ -50,9 +49,12 @@ def my_read_handler():
        'gt100um': rcv[26] * 256 + rcv[27]
        }
     pm10 = res['apm10']
-    print(res)
+    pm10=str(pm10,'utf-8')
     print(pm10)
-    print('PM1.0(CF=1): {}\n'.format(pm10))
+    #pm10 = res['apm10']
+    #print(res)
+    #print(pm10)
+    #print('PM1.0(CF=1): {}\n'.format(pm10))
     #pm10_f = float(pm10)
     #print(type(pm10_f))
     #print((pm10_f))
