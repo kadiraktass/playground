@@ -14,7 +14,7 @@ def my_read_handler():
     # this widget will show some time in seconds..
     sense = SenseHat()
     temp = sense.get_temperature()
-    blynk.virtual_write(5, temp) 
+    blynk.virtual_write(5, int(temp)) 
  
 def read_pm_line(_port):
     rv = b''
