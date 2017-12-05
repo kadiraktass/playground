@@ -21,7 +21,7 @@ def my_read_handler():
     sense = SenseHat()
     sense.clear()
     humidity = sense.get_humidity()
-    blynk.virtual_write(2, int(humidity)) 
+    blynk.virtual_write(3, int(humidity)) 
 
 @blynk.VIRTUAL_READ(5)
 def my_read_handler():
@@ -29,14 +29,13 @@ def my_read_handler():
     sense.clear()
     pressure = sense.get_pressure()
     #print(pressure)
-    blynk.virtual_write(3, int(pressure)) 
+    blynk.virtual_write(5, int(pressure)) 
 
 @blynk.VIRTUAL_READ(7)
 def my_read_handler():
-    sense = SenseHat()
-    sense.clear()
-    humidity = sense.get_humidity()
-    blynk.virtual_write(2, int(humidity)) 
+    rcv = read_pm_line(port)
+    #pm10
+    blynk.virtual_write(7, int(rcv[10] * 256 + rcv[11])) 
     
 def read_pm_line(_port):
     rv = b''
