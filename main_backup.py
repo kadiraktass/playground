@@ -2,6 +2,7 @@ import serial
 import datetime
 import time
 from sense_hat import SenseHat
+import BlynkLib
  
 port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
  
