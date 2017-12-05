@@ -11,28 +11,32 @@ port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
 
 @blynk.VIRTUAL_READ(1)
 def my_read_handler():
-    # this widget will show some time in seconds..
     sense = SenseHat()
     sense.clear()
     temp = sense.get_temperature()
     blynk.virtual_write(1, int(temp)) 
 
-@blynk.VIRTUAL_READ(2)
+@blynk.VIRTUAL_READ(3)
 def my_read_handler():
-    # this widget will show some time in seconds..
     sense = SenseHat()
     sense.clear()
     humidity = sense.get_humidity()
     blynk.virtual_write(2, int(humidity)) 
 
-@blynk.VIRTUAL_READ(3)
+@blynk.VIRTUAL_READ(5)
 def my_read_handler():
-    # this widget will show some time in seconds..
     sense = SenseHat()
     sense.clear()
     pressure = sense.get_pressure()
-    print(pressure)
+    #print(pressure)
     blynk.virtual_write(3, int(pressure)) 
+
+@blynk.VIRTUAL_READ(7)
+def my_read_handler():
+    sense = SenseHat()
+    sense.clear()
+    humidity = sense.get_humidity()
+    blynk.virtual_write(2, int(humidity)) 
     
 def read_pm_line(_port):
     rv = b''
