@@ -8,12 +8,12 @@ BLYNK_AUTH = 'd0cbc51243284f1e8b1cdca4ba4f4c5f'
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
-temp = 0
 
 @blynk.VIRTUAL_READ(5)
 def my_read_handler():
-    global temp
     # this widget will show some time in seconds..
+    sense = SenseHat()
+    temp = sense.get_temperature()
     blynk.virtual_write(5, temp) 
  
 def read_pm_line(_port):
