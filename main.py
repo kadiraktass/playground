@@ -48,7 +48,9 @@ def my_read_handler():
        'gt50um': rcv[24] * 256 + rcv[25],
        'gt100um': rcv[26] * 256 + rcv[27]
        }
-    print(type(res))
+    pm10 = res.get('apm10')
+    print(type(pm10))
+    print((pm10))
     blynk.virtual_write(7, 2) 
     
 def read_pm_line(_port):
