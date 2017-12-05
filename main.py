@@ -9,13 +9,30 @@ blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
 
-@blynk.VIRTUAL_READ(5)
+@blynk.VIRTUAL_READ(1)
 def my_read_handler():
     # this widget will show some time in seconds..
     sense = SenseHat()
+    sense.clear()
     temp = sense.get_temperature()
-    blynk.virtual_write(5, int(temp)) 
- 
+    blynk.virtual_write(1, int(temp)) 
+
+@blynk.VIRTUAL_READ(2)
+def my_read_handler():
+    # this widget will show some time in seconds..
+    sense = SenseHat()
+    sense.clear()
+    temp = sense.get_humidity()
+    blynk.virtual_write(2, int(temp)) 
+
+@blynk.VIRTUAL_READ(3)
+def my_read_handler():
+    # this widget will show some time in seconds..
+    sense = SenseHat()
+    sense.clear()
+    temp = sense.get_pressure()
+    blynk.virtual_write(3, int(temp)) 
+    
 def read_pm_line(_port):
     rv = b''
     while True:
@@ -45,14 +62,6 @@ while True:
                'gt50um': rcv[24] * 256 + rcv[25],
                'gt100um': rcv[26] * 256 + rcv[27]
                }
-        sense = SenseHat()
-        sense.clear()
-        pressure = sense.get_pressure()
-        temp = sense.get_temperature()
-        humidity = sense.get_humidity()
-        print("temperature = ",temp)
-        print("pressure = ",pressure)
-        print("humidity = ",humidity)
         print('===============\n'
               'PM1.0(CF=1): {}\n'
               'PM2.5(CF=1): {}\n'
