@@ -27,7 +27,7 @@ def read_pm_line(_port):
                 rv += _port.read(40)
                 return rv
  
- 
+blynk.run() 
 while True:
     try:
         rcv = read_pm_line(port)
