@@ -51,7 +51,7 @@ def my_read_handler():
     pm10 = res['apm10']
     print(type(pm10))
     print(pm10)
-    print(float(pm10))
+    print('PM1.0(CF=1): {}\n'.format(pm10))
     #pm10_f = float(pm10)
     #print(type(pm10_f))
     #print((pm10_f))
