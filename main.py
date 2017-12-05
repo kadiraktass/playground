@@ -3,7 +3,8 @@ import datetime
 import time
 from sense_hat import SenseHat
 import BlynkLib
- 
+import platform
+print(platform.python_version())
 BLYNK_AUTH = 'd0cbc51243284f1e8b1cdca4ba4f4c5f' 
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
