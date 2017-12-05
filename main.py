@@ -33,8 +33,22 @@ def my_read_handler():
 
 @blynk.VIRTUAL_READ(7)
 def my_read_handler():
-    rcv = read_pm_line(port)
-    print(type(rcv))
+    rcv = read_pm_line(port) 
+    res = {'timestamp': datetime.datetime.now(),
+       'apm10': rcv[4] * 256 + rcv[5],
+       'apm25': rcv[6] * 256 + rcv[7],
+       'apm100': rcv[8] * 256 + rcv[9],
+       'pm10': rcv[10] * 256 + rcv[11],
+       'pm25': rcv[12] * 256 + rcv[13],
+       'pm100': rcv[14] * 256 + rcv[15],
+       'gt03um': rcv[16] * 256 + rcv[17],
+       'gt05um': rcv[18] * 256 + rcv[19],
+       'gt10um': rcv[20] * 256 + rcv[21],
+       'gt25um': rcv[22] * 256 + rcv[23],
+       'gt50um': rcv[24] * 256 + rcv[25],
+       'gt100um': rcv[26] * 256 + rcv[27]
+       }
+    print(type(res))
     blynk.virtual_write(7, 2) 
     
 def read_pm_line(_port):
