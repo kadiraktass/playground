@@ -48,7 +48,10 @@ def my_read_handler():
        # 'gt50um': rcv[24] * 256 + rcv[25],
        # 'gt100um': rcv[26] * 256 + rcv[27]
        # }
+    rcv_unpack = struct.unpack('>16H', rcv)
     print(type(rcv))
+    print(type(rcv_unpack))
+    print(rcv_unpack)
     print("rcv[0] = ", rcv[0])
     print("rcv[1] = ", rcv[1])
     print("rcv[2] = ", rcv[2])
