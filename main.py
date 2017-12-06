@@ -29,13 +29,11 @@ def my_read_handler():
     sense = SenseHat()
     sense.clear()
     pressure = sense.get_pressure()
-    #print(pressure)
     blynk.virtual_write(5, int(pressure)) 
 
 @blynk.VIRTUAL_READ(10)
 def my_read_handler():
     rcv = read_pm_line(port)
-    print(rcv)
     blynk.virtual_write(10, rcv[4] * 256 + rcv[5]) 
 
 @blynk.VIRTUAL_READ(12)
