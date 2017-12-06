@@ -34,7 +34,8 @@ def my_read_handler():
 
 @blynk.VIRTUAL_READ(10)
 def my_read_handler():
-    rcv = read_pm_line(port) 
+    rcv = read_pm_line(port)
+    print(rcv)
     blynk.virtual_write(10, rcv[4] * 256 + rcv[5]) 
 
 @blynk.VIRTUAL_READ(12)
