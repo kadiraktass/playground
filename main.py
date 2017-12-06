@@ -74,11 +74,14 @@ def my_read_handler():
 def read_pm_line(_port):
     #data = b''
     while True:
-        data = bytearray((0x42, 0x4d,))
-        data += _port.read(30)
-        if len(data) != 32:
-            continue
-        return data
+        ch1 = bytearray()
+        ch1 = _port.read()
+        if ch1[0] == b'\x42':
+            ch2 = _port.read()
+            if ch2 == b'\x4d':
+                rv += ch1 + ch2
+                rv += _port.read(30)
+                return rv
 
 blynk.run() 
 while True:
