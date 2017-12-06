@@ -49,7 +49,9 @@ def my_read_handler():
        # 'gt100um': rcv[26] * 256 + rcv[27]
        # }
     print(type(rcv))
-    print(rcv)
+    print("rcv= ", rcv)
+    pm10= rcv[4] * 256 + rcv[5]
+    print("pm10 = ", pm10)
     #pm10 = res['apm10']
     #print(res)
     #print(pm10)
