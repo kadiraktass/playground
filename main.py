@@ -42,14 +42,20 @@ def my_read_handler():
     rcv = read_pm_line(port) 
     blynk.virtual_write(12, rcv[6] * 256 + rcv[7])
 
-@blynk.VIRTUAL_READ(14)
+@blynk.VIRTUAL_READ(20)
 def my_read_handler():
-    rcv = read_pm_line(port) 
-    blynk.virtual_write(14, rcv[8] * 256 + rcv[9]) 
-
+    target = 1
+    blynk.virtual_write(20, target)
+    
+@blynk.VIRTUAL_READ(22)
+def my_read_handler():
+    target = 1
+    blynk.virtual_write(22, target)
+    
 @blynk.VIRTUAL_WRITE(40)
 def my_write_handler(value):
     print('Current V1 value: {}'.format(value))    
+    
     
 def read_pm_line(_port):
     rv = bytearray()
