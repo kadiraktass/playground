@@ -3,6 +3,7 @@ import datetime
 import time
 from sense_hat import SenseHat
 import BlynkLib
+import struct
 
 BLYNK_AUTH = 'd0cbc51243284f1e8b1cdca4ba4f4c5f' 
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
