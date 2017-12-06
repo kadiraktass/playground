@@ -65,7 +65,7 @@ def read_pm_line(_port):
     #data = b''
     while True:
         data = bytearray((0x42, 0x4d,))
-        data += _port.read(30, .1)
+        data += _port.read(30)
         if len(data) != 32:
             continue
         return data
