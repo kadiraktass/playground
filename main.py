@@ -44,12 +44,12 @@ def my_read_handler():
 
 @blynk.VIRTUAL_READ(20)
 def my_read_handler():
-    target = 1
+    target = 0
     blynk.virtual_write(20, target)
     
 @blynk.VIRTUAL_READ(22)
 def my_read_handler():
-    target = 1
+    target = 0
     blynk.virtual_write(22, target)
     
 @blynk.VIRTUAL_WRITE(40)
