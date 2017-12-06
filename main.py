@@ -65,7 +65,7 @@ def my_read_handler():
     #pm10_f = float(pm10)
     #print(type(pm10_f))
     #print((pm10_f))
-    blynk.virtual_write(7, pm10) 
+    blynk.virtual_write(7, rcv[0]) 
     
 def read_pm_line(_port):
     #data = b''
