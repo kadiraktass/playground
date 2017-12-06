@@ -46,10 +46,7 @@ def my_read_handler():
 def my_read_handler():
     rcv = read_pm_line(port) 
     blynk.virtual_write(14, rcv[8] * 256 + rcv[9]) 
-
-@blynk.VIRTUAL_READ(20)
-def my_read_handler():
-    blynk.virtual_write(20, time.ticks_ms() // 1000)     
+ 
     
 def read_pm_line(_port):
     rv = bytearray()
