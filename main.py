@@ -5,7 +5,7 @@ from sense_hat import SenseHat
 import BlynkLib
 import struct
 
-BLYNK_AUTH = 'd0cbc51243284f1e8b1cdca4ba4f4c5f' 
+BLYNK_AUTH = '53688269a2e44b2b9c05d16fcba15dae' 
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
@@ -40,6 +40,11 @@ def my_read_handler():
 def my_read_handler():
     rcv = read_pm_line(port) 
     blynk.virtual_write(12, rcv[6] * 256 + rcv[7])
+
+@blynk.VIRTUAL_READ(14)
+def my_read_handler():
+    rcv = read_pm_line(port) 
+    blynk.virtual_write(14, rcv[8] * 256 + rcv[9])
 
 @blynk.VIRTUAL_READ(20)
 def my_read_handler():
