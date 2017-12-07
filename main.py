@@ -9,7 +9,8 @@ BLYNK_AUTH = '53688269a2e44b2b9c05d16fcba15dae'
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 port = serial.Serial('/dev/ttyS0', baudrate=9600, timeout=2.0)
-
+sense = SenseHat()
+sense.show_letter("E",[0, 0, 255],[0, 0, 0])
 @blynk.VIRTUAL_READ(1)
 def my_read_handler():
     sense = SenseHat()
